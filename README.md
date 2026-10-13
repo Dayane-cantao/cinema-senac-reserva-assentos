@@ -1,4 +1,4 @@
-# cinema-senac-reserva-assentos
+# Cinema-Senac-Reserva-Assentos
 Projeto Integrador - Sistema de Reserva de Assentos de Cinema
 # Sistema Simples de Reserva de Assentos de Cinema
 
