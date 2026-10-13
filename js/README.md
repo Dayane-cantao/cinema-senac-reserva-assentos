@@ -1,3 +1,7 @@
+# Orientação da pasta
+
+Antes de alterar qualquer arquivo desta pasta, verifique a responsabilidade definida para cada integrante.
+
 # Pasta JavaScript
 
 Responsáveis principais:
