@@ -21,8 +21,8 @@ Desenvolver uma aplicação web simples e interativa para simular a reserva de i
 - Gustavo Duque Ferreira — Requisitos e regras do sistema
 - Fabiana Costa dos Santos — Documentação e apresentação
 - Ranieri Portinari Bezerra Dos Santos — Protótipo visual e layout
-- Guilherme de Melo Gama — Estrutura HTML
-- Bruno Lira Soares — CSS e responsividade
+- Bruno Lira Soares — Estrutura HTML
+- Guilherme de Melo Gama — CSS e responsividade
 - Rebeca Brandão Vieira — JavaScript e funcionalidades
 - Victor Cabral — LocalStorage, validações e testes
 
