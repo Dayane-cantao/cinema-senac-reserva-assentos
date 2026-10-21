@@ -2,7 +2,7 @@
 PROJETO INTEGRADOR - CINEMA SENAC
 
 Responsável principal pelo HTML:
-Guilherme de Melo Gama
+Bruno lira
 
 Objetivo:
 Criar e manter a estrutura HTML das telas.

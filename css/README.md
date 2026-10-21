@@ -4,7 +4,7 @@ Antes de alterar qualquer arquivo desta pasta, verifique a responsabilidade defi
 
 # Pasta CSS
 
-Responsável principal: Bruno Lira Soares
+Responsável principal: Guilherme Gama
 
 ## Responsabilidade
 
@@ -32,6 +32,6 @@ Ajustes para celular e outras telas menores.
 
 ## Atenção
 
-Alterações estruturais no HTML devem ser alinhadas com Guilherme.
+Alterações estruturais no HTML devem ser alinhadas com Bruno.
 
 Alterações que dependam de JavaScript devem ser alinhadas com Rebeca.

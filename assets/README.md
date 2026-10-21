@@ -7,7 +7,7 @@ Antes de alterar qualquer arquivo desta pasta, verifique a responsabilidade defi
 Responsáveis principais:
 
 Ranieri Portinari Bezerra Dos Santos — definição visual e seleção dos elementos.
-Bruno Lira Soares — aplicação desses elementos na interface.
+Guilherme Gama — aplicação desses elementos na interface.
 
 ## Organização
 

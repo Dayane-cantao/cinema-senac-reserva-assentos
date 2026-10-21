@@ -4,129 +4,90 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#181717">
-  <title>Cinema Senac — Ingressos de cinema</title>
+  <meta name="description" content="Consulte filmes em cartaz e escolha seus assentos no Cinema Senac.">
+  <title>Cine Senac</title>
+  <link rel="icon" type="image/png" href="assets/icons/icon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
 </head>
 <body>
-  <!-- CABEÇALHO
-       FUNÇÃO: logo, busca, entrar e menu principal (fica fixo no topo).
-       ALTERAR: texto do logo e dos links do menu. Os href="#..." levam às seções (ids) abaixo. -->
   <header class="topbar">
     <div class="topbar-inner">
       <div class="topbar-top">
-        <a class="brand" href="#" aria-label="Cinema Senac início">Cinema Senac</a>
-        <div class="topbar-actions">
-          <button class="icon-btn" type="button" aria-label="Buscar" data-demo="A busca está representada visualmente neste protótipo.">
-            <svg width="18" height="18" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="8.500" cy="8.500" r="6"/><path d="M13 13l5 5"/></svg>
-          </button>
-          <button class="login-button" type="button" data-demo="A área de login está representada visualmente neste protótipo.">Entrar</button>
-        </div>
+        <a class="brand" href="index.html" aria-label="Cine Senac início"><img class="brand-icon" src="assets/icons/icon.png" alt="">Cine Senac</a>
       </div>
       <nav class="main-nav" aria-label="Navegação principal">
         <a class="active" href="#filmes">Filmes</a>
-        <a href="#assentos">Assentos</a>
+        <a href="pages/assentos.html">Assentos</a>
         <a href="#como-funciona">Como funciona</a>
       </nav>
     </div>
   </header>
-
   <main class="page-shell">
-    <!-- BANNER (HERO)
-         FUNÇÃO: destaque no topo da página, ainda vazio.
-         ALTERAR: colocar texto em .hero-copy e a imagem dentro de .hero-art. -->
-    <section class="hero" id="filmes">
-      <div class="hero-copy"><!-- ESPAÇO PARA CONTEÚDO DO BANNER --></div>
-      <div class="hero-art" aria-hidden="true">
-        <!-- ESPAÇO PARA IMAGEM DO HERO (opcional): coloque aqui <img src="img/hero.png" alt=""> -->
-      </div>
+    <section class="hero cinema-banner" id="filmes" aria-label="Cinema Senac">
+      <img
+        class="cinema-banner-image"
+        src="assets/img/interface/Banner Cinematográfico Cine Senac.png"
+        alt="Cinema Senac: sua próxima sessão começa aqui. Explore os filmes em cartaz."
+      >
+      <a class="cinema-banner-link" href="#catalogo" aria-label="Explorar filmes em cartaz"></a>
     </section>
-
-    <!-- TÍTULO "EM CARTAZ"
-         FUNÇÃO: título da lista de filmes + data de hoje.
-         ALTERAR: os textos. A data (#todayLabel) é preenchida pelo JS, o texto aqui é só reserva. -->
     <section class="section-heading" id="catalogo">
-      <div><p class="eyebrow muted">EM CARTAZ</p><h2>Assista Agora</h2></div>
-      <div class="date-chip">Hoje, <strong id="todayLabel">16 de outubro</strong></div>
+      <div><p class="eyebrow muted">EM CARTAZ</p><h2>Assista agora</h2></div>
+      <div class="date-chip">Hoje, <strong id="todayLabel">Consulte as sessões</strong></div>
     </section>
-
-    <!-- LISTA DE FILMES (3 cards)
-         FUNÇÃO: cada <article> é um filme com pôster, nome, gênero, classificação e horários.
-         ALTERAR: título (h3 E o data-title, os dois iguais), gênero/duração, classificação, nota, TAG,
-                  horários (texto E data-time), e o pôster (<img> dentro de .poster).
-         NÃO MEXER: data-movie (liga o card aos assentos ocupados no JS) e a classe "active" no primeiro horário. -->
     <section class="movie-grid" aria-label="Filmes disponíveis">
-      <article class="movie-card selected" data-movie="filme1" data-title="Título do filme 1">
-        <div class="poster"><!-- PÔSTER: adicione aqui <img src="img/poster.jpg" alt="Pôster do filme"> --><span class="poster-tag">TAG</span><span class="poster-rating">0,0</span></div>
-        <div class="movie-info"><div><h3>Título do filme 1</h3><p>Gênero · 0h 00min</p></div><span class="age">00</span></div>
-        <div class="showtimes"><button class="time-btn active" data-time="00:00">00:00</button><button class="time-btn" data-time="00:00">00:00</button><button class="time-btn" data-time="00:00">00:00</button></div>
+      <article class="movie-card selected" data-movie="filme1" data-title="Vingadores: Doutor Destino">
+        <div class="poster"><img src="assets/img/filmes/filme1.jpeg" alt="Vingadores: Doutor Destino" loading="lazy"><span class="poster-tag">Lançamento</span><span class="poster-rating">5</span></div>
+        <div class="movie-info"><div><h3>Vingadores: Doutor Destino</h3><p>Ficção científica, Ação e Aventura 2h 45m</p></div><span class="age">12</span></div>
+        <div class="showtimes"><button class="time-btn" type="button" data-time="14:00">14:00</button><button class="time-btn" type="button" data-time="17:30">17:30</button><button class="time-btn" type="button" data-time="20:45">20:45</button></div>
       </article>
-      <article class="movie-card" data-movie="filme2" data-title="Título do filme 2">
-        <div class="poster"><!-- PÔSTER: adicione aqui <img src="img/poster.jpg" alt="Pôster do filme"> --><span class="poster-tag">TAG</span><span class="poster-rating">0,0</span></div>
-        <div class="movie-info"><div><h3>Título do filme 2</h3><p>Gênero · 0h 00min</p></div><span class="age">00</span></div>
-        <div class="showtimes"><button class="time-btn active" data-time="00:00">00:00</button><button class="time-btn" data-time="00:00">00:00</button><button class="time-btn" data-time="00:00">00:00</button></div>
+      <article class="movie-card" data-movie="filme2" data-title="A Odisseia">
+        <div class="poster"><img src="assets/img/filmes/filme2.jpeg" alt="A Odisseia" loading="lazy"><span class="poster-tag">Popular</span><span class="poster-rating">4.1</span></div>
+        <div class="movie-info"><div><h3>A Odisseia</h3><p>Aventura, Ação e Fantasia 2h 52m</p></div><span class="age">14</span></div>
+        <div class="showtimes"><button class="time-btn" type="button" data-time="13:30">13:30</button><button class="time-btn" type="button" data-time="16:15">16:15</button><button class="time-btn" type="button" data-time="19:00">19:00</button></div>
       </article>
-      <article class="movie-card" data-movie="filme3" data-title="Título do filme 3">
-        <div class="poster"><!-- PÔSTER: adicione aqui <img src="img/poster.jpg" alt="Pôster do filme"> --><span class="poster-tag">TAG</span><span class="poster-rating">0,0</span></div>
-        <div class="movie-info"><div><h3>Título do filme 3</h3><p>Gênero · 0h 00min</p></div><span class="age">00</span></div>
-        <div class="showtimes"><button class="time-btn active" data-time="00:00">00:00</button><button class="time-btn" data-time="00:00">00:00</button><button class="time-btn" data-time="00:00">00:00</button></div>
+      <article class="movie-card" data-movie="filme3" data-title="Matchbox - O Filme">
+        <div class="poster"><img src="assets/img/filmes/filme3.jpeg" alt="Matchbox - O Filme" loading="lazy"><span class="poster-tag">Especial</span><span class="poster-rating">2.8</span></div>
+        <div class="movie-info"><div><h3>Matchbox - O Filme</h3><p>Ação, Comédia e Aventura 2h 7m</p></div><span class="age">14</span></div>
+        <div class="showtimes"><button class="time-btn" type="button" data-time="15:00">15:00</button><button class="time-btn" type="button" data-time="18:20">18:20</button><button class="time-btn" type="button" data-time="21:10">21:10</button></div>
+      </article>
+      <article class="movie-card" data-movie="filme4" data-title="Sobrenatural: Agora Entre Nós">
+        <div class="poster"><img src="assets/img/filmes/filme4.jpeg" alt="Sobrenatural: Agora Entre Nós" loading="lazy"><span class="poster-tag">Novo</span><span class="poster-rating">2.8</span></div>
+        <div class="movie-info"><div><h3>Sobrenatural: Agora Entre Nós</h3><p>Terror e Thriller 1h 46m</p></div><span class="age">14</span></div>
+        <div class="showtimes"><button class="time-btn" type="button" data-time="14:20">14:20</button><button class="time-btn" type="button" data-time="17:10">17:10</button><button class="time-btn" type="button" data-time="20:30">20:30</button></div>
+      </article>
+      <article class="movie-card" data-movie="filme5" data-title="Minions & Monstros">
+        <div class="poster"><img src="assets/img/filmes/filme5.jpeg" alt="Minions & Monstros" loading="lazy"><span class="poster-tag">Para Familia</span><span class="poster-rating">3.1</span></div>
+        <div class="movie-info"><div><h3>Minions & Monstros</h3><p>Aventura, Animação, Comédia, Família e Fantasia 1h 27m</p></div><span class="age">10</span></div>
+        <div class="showtimes"><button class="time-btn" type="button" data-time="13:00">13:00</button><button class="time-btn" type="button" data-time="16:00">16:00</button><button class="time-btn" type="button" data-time="19:30">19:30</button></div>
+      </article>
+      <article class="movie-card" data-movie="filme6" data-title="Homem-Aranha: Um Novo Dia">
+        <div class="poster"><img src="assets/img/filmes/filme6.jpeg" alt="Homem-Aranha: Um Novo Dia" loading="lazy"><span class="poster-tag">Destaque</span><span class="poster-rating">4.1</span></div>
+        <div class="movie-info"><div><h3>Homem-Aranha: Um Novo Dia</h3><p>Ficção científica, Ação e Aventura 2h 23m</p></div><span class="age">12</span></div>
+        <div class="showtimes"><button class="time-btn" type="button" data-time="15:30">15:30</button><button class="time-btn" type="button" data-time="18:40">18:40</button><button class="time-btn" type="button" data-time="21:30">21:30</button></div>
+      </article>
+      <article class="movie-card" data-movie="filme7" data-title="Street Fighter">
+        <div class="poster"><img src="assets/img/filmes/filme7.jpeg" alt="Street Fighter" loading="lazy"><span class="poster-tag">Popular</span><span class="poster-rating">3.1</span></div>
+        <div class="movie-info"><div><h3>Street Fighter</h3><p>Ação e Fantasia 1h 59m</p></div><span class="age">14</span></div>
+        <div class="showtimes"><button class="time-btn" type="button" data-time="14:40">14:40</button><button class="time-btn" type="button" data-time="17:50">17:50</button><button class="time-btn" type="button" data-time="20:10">20:10</button></div>
+      </article>
+      <article class="movie-card" data-movie="filme8" data-title="Coração Selvagem">
+        <div class="poster"><img src="assets/img/filmes/filme8.jpeg" alt="Coração Selvagem" loading="lazy"><span class="poster-tag">Em cartaz</span><span class="poster-rating">3.6</span></div>
+        <div class="movie-info"><div><h3>Coração Selvagem</h3><p>Aventura e Thriller 1h 41m</p></div><span class="age">14</span></div>
+        <div class="showtimes"><button class="time-btn" type="button" data-time="13:40">13:40</button><button class="time-btn" type="button" data-time="16:50">16:50</button><button class="time-btn" type="button" data-time="19:20">19:20</button></div>
       </article>
     </section>
-
-    <!-- ESCOLHA DE ASSENTOS
-         FUNÇÃO: mapa de poltronas (esquerda) + resumo do pedido (direita).
-         ALTERAR: textos e títulos. Sala e formato ("Sala 04 · 2D") estão escritos à mão aqui e no JS. -->
-    <section class="booking-panel" id="assentos">
-      <div class="booking-intro"><div><p class="eyebrow muted">SEU MOMENTO, SEU LUGAR</p><h2>Escolha seus assentos</h2><p>Selecione as poltronas para continuar com a compra.</p></div><div class="screen-label">TELA</div></div>
-      <div class="seat-layout">
-        <div class="seat-area">
-          <!-- VISÃO DA TELA: só CSS (curva + legenda), aparece sem JS. Estilizar .screen-curve e .screen-caption. -->
-          <div class="screen-curve"></div>
-          <div class="screen-caption">VISÃO DA TELA</div>
-          <!-- MAPA DE POLTRONAS (responsabilidade do JS)
-               FUNÇÃO: fica vazio aqui; o app.js desenha as fileiras A-F dentro dele ao carregar.
-               HTML/CSS: não criar poltronas aqui, só estilizar as classes que o JS gera:
-                 .seat-row (fileira) > .row-label (letra) + .seat (poltrona) + <span> vazio (corredor).
-                 Estados da poltrona: .seat | .seat:hover | .seat.chosen (selecionado) | .seat.occupied (ocupado).
-                 (.chosen ainda não é aplicado: a seleção será feita por outro colega no JS.)
-               Se mudar essa estrutura ou as classes, avisar a pessoa do JS. -->
-          <div class="seat-map" id="seatMap" aria-label="Mapa de assentos"></div>
-          <!-- LEGENDA: explica as cores das poltronas. Estilizar .legend-seat.available / .chosen / .occupied
-               (devem combinar com .seat, .seat.chosen e .seat.occupied). -->
-          <div class="seat-legend"><span><i class="legend-seat available"></i> Disponível</span><span><i class="legend-seat chosen"></i> Selecionado</span><span><i class="legend-seat occupied"></i> Ocupado</span></div>
-        </div>
-        <!-- RESUMO DO PEDIDO
-             FUNÇÃO: mostra filme, horário, assentos escolhidos e total. O botão Continuar é estático (ainda sem ação).
-             NÃO MEXER: ids summaryMovie, summaryTime (preenchidos pelo JS) e continueBtn (id mantido para uso futuro).
-             #selectedSeats e #totalPrice estão com texto fixo: o colega da seleção/cálculo vai preenchê-los (não remover os ids). -->
-        <aside class="order-summary">
-          <div class="summary-top"><span class="summary-icon">▣</span><div><p>RESUMO DO PEDIDO</p><h3 id="summaryMovie">Título do filme 1</h3></div></div>
-          <div class="summary-meta"><span>Hoje · <b id="summaryTime">00:00</b></span><span>Sala 04 · 2D</span></div>
-          <div class="summary-seats"><p>SEUS ASSENTOS</p><div id="selectedSeats" class="selected-seats">Nenhum assento selecionado</div></div>
-          <div class="summary-total"><span>Total</span><strong id="totalPrice">R$ 0,00</strong></div>
-          <button class="primary-button" id="continueBtn">Continuar <span>→</span></button>
-          <p class="secure-note">Compra segura · pagamento protegido</p>
-        </aside>
-      </div>
-    </section>
-
-    <!-- COMO FUNCIONA
-         FUNÇÃO: 3 passos explicativos, conteúdo fixo.
-         ALTERAR: números, títulos e textos. -->
     <section class="steps" id="como-funciona">
       <div><span class="step-number">01</span><div><h3>Escolha seu filme</h3><p>Encontre a história perfeita para hoje.</p></div></div>
       <div><span class="step-number">02</span><div><h3>Marque seu lugar</h3><p>Escolha as poltronas que preferir.</p></div></div>
-      <div><span class="step-number">03</span><div><h3>Curta a sessão</h3><p>Finalize a compra e prepare a pipoca.</p></div></div>
+      <div><span class="step-number">03</span><div><h3>Finalize a compra</h3><p>Confirme os dados e prepare a pipoca.</p></div></div>
     </section>
-    <!-- RODAPÉ — FUNÇÃO: logo e créditos. ALTERAR: textos. -->
-    <footer><a class="brand footer-brand" href="#">Cinema Senac</a><p>Feito para quem ama bons filmes.</p><span>© 2026 Cinema Senac · Projeto demonstrativo</span></footer>
+    <footer><a class="brand footer-brand" href="index.html">Cinema Senac</a><p>Feito para quem ama filmes.</p><span>© 2026 Cinema Senac projeto acadêmico</span></footer>
   </main>
-
-  <!-- AVISO (toast): mensagem curta que o JS mostra por ~2,6s. Só estilizar .toast / .toast.show. -->
-  <div class="toast" id="toast" role="status"></div>
-  <!-- Carrega o JS (sempre por último). Não mover. -->
-  <script src="js/app.js"></script>
+  <script src="js/visual.js"></script>
 </body>
 </html>

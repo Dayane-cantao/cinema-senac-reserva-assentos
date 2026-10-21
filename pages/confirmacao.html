@@ -1,1 +1,51 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#181717">
+  <title>Confirmação Cine Senac</title>
+  <link rel="icon" type="image/png" href="../assets/icons/icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/responsive.css">
+</head>
+<body>
+<header class="topbar"><div class="topbar-inner"><div class="topbar-top"><a class="brand" href="../index.html"><img class="brand-icon" src="../assets/icons/icon.png" alt="">Cine Senac</a><div class="topbar-actions"><a class="login-button" href="../index.html#catalogo">Ver filmes</a></div></div><nav class="main-nav" aria-label="Navegação principal"><a href="../index.html#filmes">Filmes</a><a href="assentos.html">Assentos</a><a href="pagamento.html">Pagamento</a><a href="confirmacao.html">Confirmação</a></nav></div></header>
+<main class="page-shell inner-page">
 
+  <nav class="breadcrumb" aria-label="Caminho"><a href="../index.html">Início</a><span>›</span><a href="assentos.html">Assentos</a><span>›</span><a href="pagamento.html">Pagamento</a><span>›</span><span class="current">Confirmação</span></nav>
+  <div class="checkout-progress"><div class="progress-step complete"><span class="progress-number">✓</span><span>Assentos</span></div><div class="progress-step complete"><span class="progress-number">✓</span><span>Pagamento</span></div><div class="progress-step active"><span class="progress-number">3</span><span>Confirmação</span></div></div>
+  <section class="confirmation-wrap">
+    <div class="confirmation-icon">✓</div>
+    <p class="eyebrow">PEDIDO FINALIZADO · DEMONSTRAÇÃO</p>
+    <h1 class="page-title">Tudo pronto para a sessão.</h1>
+    <p class="page-lead" style="margin:0 auto">Esta é uma tela de confirmação visual do protótipo. Como o sistema de pagamento real não está conectado, esta página não representa uma compra efetivamente processada.</p>
+    <div class="confirmation-card"><p class="eyebrow muted">RESUMO DO PEDIDO</p><h2 style="margin-top:8px">Seu ingresso de cinema</h2><div class="summary-line"><span>Filme</span><strong>Não informado</strong></div><div class="summary-line"><span>Sessão</span><strong>Não informada</strong></div><div class="summary-line"><span>Assentos</span><strong>Não informados</strong></div><div class="summary-line"><span>Total</span><strong>R$ 0,00</strong></div><p style="margin-top:20px;color:var(--muted);font-size:.9rem">Código demonstrativo</p><div class="ticket-code" id="confirmationCode">CINEMA-SENAC</div><div class="notice-panel" id="confirmationMessage">Esta é uma confirmação demonstrativa. Nenhuma compra ou cobrança foi realizada.</div></div>
+    <div class="checkout-actions" style="justify-content:center"><a class="secondary-button" href="../index.html">Voltar ao início</a><a class="primary-button" style="width:auto" href="../index.html#catalogo">Escolher outro filme <span>→</span></a></div>
+  </section>
+<footer class="page-footer"><a class="brand footer-brand" href="../index.html">Cinema Senac</a><p>Feito para quem ama filmes.</p><span>© 2026 Cinema Senac projeto acadêmico</span></footer>
+  <script>
+    (() => {
+      const params = new URLSearchParams(window.location.search);
+      const method = params.get('metodo') || 'demo';
+      const code = params.get('codigo') || 'CINEMA-SENAC';
+      const codeEl = document.getElementById('confirmationCode');
+      const message = document.getElementById('confirmationMessage');
+      codeEl.textContent = code;
+      if (method === 'bilheteria') {
+        document.querySelector('.page-title').textContent = 'Retire seu bilhete no balcão.';
+        message.innerHTML = '<strong>Vá até o balcão do cinema.</strong><br>Apresente o código acima ao atendente para retirar seu bilhete. Este código é fictício e não representa uma reserva real.';
+      } else if (method === 'pix') {
+        document.querySelector('.page-title').textContent = 'Pedido demonstrativo concluído.';
+        message.textContent = 'O QR code era fictício. Nenhum pagamento Pix foi realizado; esta tela serve apenas para testar a navegação.';
+      } else {
+        message.textContent = 'Esta é uma confirmação demonstrativa. Nenhuma compra ou cobrança foi realizada.';
+      }
+    })();
+  </script>
+</main>
+</body>
+</html>

@@ -1,1 +1,85 @@
+/* Banner, layout e controles responsivos Carregado depois de style.css. */
+@media (max-width: 960px) {
+  .poster { aspect-ratio: 3 / 4; }
+  .seat-layout { grid-template-columns: 1fr; }
+  .order-summary { position: static; }
+  .steps { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .page-shell, .topbar-inner { padding-left: 18px; padding-right: 18px; }
+}
 
+@media (max-width: 800px) {
+  .checkout-layout { grid-template-columns: 1fr; }
+  .checkout-progress { gap: 7px; }
+  .progress-step { padding: 11px 9px; gap: 7px; font-size: .82rem; }
+}
+
+@media (max-width: 640px) {
+  .payment-method-panel { padding: 16px; }
+}
+
+@media (max-width: 600px) {
+  html { scroll-padding-top: 110px; }
+  .topbar-inner, .page-shell { padding-left: 16px; padding-right: 16px; }
+  .topbar-inner { padding-top: 8px; }
+  .brand { font-size: 1.1rem; }
+  .main-nav { gap: 18px; padding-top: 5px; }
+  .main-nav a { padding: 6px 1px 8px; font-size: .84rem; }
+  .hero { margin-top: 16px; }
+  .section-heading { margin: 22px 0 10px; }
+  .section-heading, .booking-intro { flex-direction: column; align-items: flex-start; }
+  .date-chip { padding: 6px 11px; font-size: .82rem; }
+  .movie-grid { gap: 12px; padding: 10px 4px 14px; }
+  .movie-card { flex-basis: clamp(190px, 68vw, 220px); }
+  .poster-tag, .poster-rating { top: 9px; padding: 3px 8px; font-size: .65rem; }
+  .poster-tag { left: 9px; }
+  .poster-rating { right: 9px; }
+  .booking-panel { margin-top: 22px; padding: 16px 12px; }
+  .booking-intro { gap: 10px; margin-bottom: 18px; }
+  .seat-area { padding: 16px 8px; }
+  .screen-curve { height: 34px; }
+  .screen-caption { margin: 8px 0 20px; }
+  .seat-legend { gap: 12px; margin-top: 18px; padding-top: 14px; font-size: .78rem; }
+  .order-summary { gap: 12px; padding: 16px; }
+  .steps { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; margin-top: 26px; }
+  .steps > div { flex-direction: column; gap: 8px; padding: 12px; }
+  .step-number { font-size: 1.4rem; }
+  .steps h3 { font-size: .88rem; }
+  .steps p { font-size: .75rem; line-height: 1.35; }
+  footer { margin-top: 28px; padding-top: 18px; }
+  .movie-card:hover { transform: none; }
+}
+
+@media (max-width: 560px) {
+  .checkout-progress { grid-template-columns: 1fr; }
+  .progress-step { min-height: 44px; padding: 8px 11px; }
+  .payment-options { grid-template-columns: 1fr; }
+  .checkout-actions { flex-direction: column; }
+  .checkout-actions > * { width: 100%; }
+  .breadcrumb { font-size: .8rem; }
+  .inner-page { padding-top: 14px; }
+  .checkout-card { padding: 16px; }
+  .payment-method-panel { padding: 14px; }
+  .confirmation-wrap { margin-top: 20px; }
+  .confirmation-card { margin-top: 16px; }
+}
+
+@media (max-width: 380px) {
+  .topbar-inner, .page-shell { padding-left: 12px; padding-right: 12px; }
+  .main-nav { gap: 14px; }
+  .main-nav a { font-size: .8rem; }
+  .movie-card { flex-basis: min(76vw, 220px); }
+  .movie-info { gap: 8px; padding: 10px 11px 4px; }
+  .movie-info h3 { font-size: .92rem; }
+  .movie-info p { font-size: .76rem; }
+  .showtimes { gap: 6px; padding: 7px 11px 10px; }
+  .time-btn { padding: 6px 9px; font-size: .76rem; }
+  .steps > div { padding: 9px; }
+  .steps h3 { font-size: .82rem; }
+  .steps p { font-size: .75rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+  .movie-grid { scroll-behavior: auto; }
+}
