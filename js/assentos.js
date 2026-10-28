@@ -65,3 +65,10 @@ function montarMapa() {
 }
 const OCUPADOS = ['F5', 'A6', 'G7', 'H16', 'I3', 'J20', 'K10', 'L16', 'M18', 'N17', 'O8'];
 montarMapa();
+const btnNumeros = document.getElementById('btnNumeros');
+btnNumeros.addEventListener('click', () => {
+    const mapa = document.getElementById('seatMap');
+    const escondido = mapa.classList.toggle('sem-numeros');
+    btnNumeros.setAttribute('aria-checked', !escondido);
+
+});
