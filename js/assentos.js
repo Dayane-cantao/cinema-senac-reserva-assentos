@@ -70,5 +70,25 @@ btnNumeros.addEventListener('click', () => {
     const mapa = document.getElementById('seatMap');
     const escondido = mapa.classList.toggle('sem-numeros');
     btnNumeros.setAttribute('aria-checked', !escondido);
-
 });
+const PRECO_INGRESSO = 55.00;
+const selecionados = [];
+function alternarAssento(id) {
+    if (selecionados.includes(id)) {
+        const index = selecionados.indexOf(id);
+        selecionados.splice(index, 1);
+    } else {
+        selecionados.push(id);
+    }
+}
+function atualizarResumo() {
+    const painel = document.getElementById('selectedSeats');
+    if (selecionados.length === 0) {
+        painel.textContent = 'Nenhum assento selecionado';
+    } else {
+        painel.textContent = selecionados.join(', ');
+    }
+}
+function formatarMoeda(valor) {
+    return valor.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+}
