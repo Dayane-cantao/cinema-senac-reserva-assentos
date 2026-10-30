@@ -1,4 +1,3 @@
-
 (function () {
   'use strict';
 
@@ -16,9 +15,16 @@
       var filme = horario.closest('.movie-card');
       if (!filme) return;
 
+      var titulo = filme.dataset.title || '';
+      var horarioSelecionado = horario.dataset.time || horario.textContent.trim();
+      if (!Armazenamento.salvarSessaoSelecionada(titulo, horarioSelecionado)) {
+        window.alert('Não foi possível salvar o filme e o horário selecionados. Verifique as configurações de armazenamento do navegador e tente novamente.');
+        return;
+      }
+
       var parametros = new URLSearchParams({
-        filme: filme.dataset.title || '',
-        horario: horario.dataset.time || horario.textContent.trim()
+        filme: titulo,
+        horario: horarioSelecionado
       });
       window.location.href = 'pages/assentos.html?' + parametros.toString();
     });
