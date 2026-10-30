@@ -17,6 +17,7 @@ function montarFileira(fileira,padrao){
         poltrona.dataset.id = `${fileira}${numero}`;
         poltrona.textContent = numero;
         poltrona.setAttribute('aria-label', `Fileira ${fileira}, poltrona ${numero}, disponível`);
+        poltrona.setAttribute('aria-pressed', 'false');
         if (OCUPADOS.includes(id)) {
         poltrona.classList.add('occupied');
         poltrona.disabled = true;
@@ -81,14 +82,41 @@ function alternarAssento(id) {
         selecionados.push(id);
     }
 }
+function compararAssentos(a, b) {
+    const fileiraA = a[0];
+    const fileiraB = b[0];
+    const numeroA = Number(a.slice(1));
+    const numeroB = Number(b.slice(1));
+    if (fileiraA !== fileiraB) {
+        return fileiraA.localeCompare(fileiraB);
+    } else {
+        return numeroA - numeroB;
+    }
+}
+
 function atualizarResumo() {
     const painel = document.getElementById('selectedSeats');
     if (selecionados.length === 0) {
         painel.textContent = 'Nenhum assento selecionado';
     } else {
-        painel.textContent = selecionados.join(', ');
+        painel.textContent = [...selecionados].sort(compararAssentos).join(', ');
     }
+    const total = PRECO_INGRESSO * selecionados.length;
+    const painelTotal = document.getElementById('totalPrice');
+    painelTotal.textContent = formatarMoeda(total);
 }
 function formatarMoeda(valor) {
     return valor.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
 }
+const mapaAssentos = document.getElementById('seatMap');
+mapaAssentos.addEventListener('click', (evento) => {
+    const poltrona = evento.target.closest('.seat');
+    if (poltrona === null || poltrona.classList.contains('occupied')) {
+        return;
+    }
+    alternarAssento(poltrona.dataset.id);
+    const marcada = selecionados.includes(poltrona.dataset.id);
+    poltrona.classList.toggle('chosen', marcada);
+    poltrona.setAttribute('aria-pressed', marcada);
+    atualizarResumo();
+});
