@@ -13,7 +13,7 @@
   <link rel="stylesheet" href="../css/responsive.css">
 </head>
 <body>
-<header class="topbar"><div class="topbar-inner"><div class="topbar-top"><a class="brand" href="../index.html"><img class="brand-icon" src="../assets/icons/icon.png" alt="">Cine Senac</a><div class="topbar-actions"><a class="login-button" href="../index.html#catalogo">Ver filmes</a></div></div><nav class="main-nav" aria-label="Navegação principal"><a href="../index.html#filmes">Filmes</a><a href="assentos.html">Assentos</a><a href="pagamento.html">Pagamento</a><a href="confirmacao.html">Confirmação</a></nav></div></header>
+<header class="topbar"><div class="topbar-inner"><div class="topbar-top"><span class="brand"><img class="brand-icon" src="../assets/icons/icon.png" alt="">Cine Senac</span></div></div></header>
 <main class="page-shell inner-page">
 
   <nav class="breadcrumb" aria-label="Caminho"><a href="../index.html">Início</a><span>›</span><a href="assentos.html">Assentos</a><span>›</span><a href="pagamento.html">Pagamento</a><span>›</span><span class="current">Confirmação</span></nav>
@@ -23,17 +23,23 @@
     <p class="eyebrow">PEDIDO FINALIZADO · DEMONSTRAÇÃO</p>
     <h1 class="page-title">Tudo pronto para a sessão.</h1>
     <p class="page-lead" style="margin:0 auto">Esta é uma tela de confirmação visual do protótipo. Como o sistema de pagamento real não está conectado, esta página não representa uma compra efetivamente processada.</p>
-    <div class="confirmation-card"><p class="eyebrow muted">RESUMO DO PEDIDO</p><h2 style="margin-top:8px">Seu ingresso de cinema</h2><div class="summary-line"><span>Filme</span><strong>Não informado</strong></div><div class="summary-line"><span>Sessão</span><strong>Não informada</strong></div><div class="summary-line"><span>Assentos</span><strong>Não informados</strong></div><div class="summary-line"><span>Total</span><strong>R$ 0,00</strong></div><p style="margin-top:20px;color:var(--muted);font-size:.9rem">Código demonstrativo</p><div class="ticket-code" id="confirmationCode">CINEMA-SENAC</div><div class="notice-panel" id="confirmationMessage">Esta é uma confirmação demonstrativa. Nenhuma compra ou cobrança foi realizada.</div></div>
+    <div class="confirmation-card"><p class="eyebrow muted">RESUMO DO PEDIDO</p><h2 style="margin-top:8px">Seu ingresso de cinema</h2><div class="summary-line"><span>Filme</span><strong id="confirmationMovie">Não informado</strong></div><div class="summary-line"><span>Sessão</span><strong id="confirmationTime">Não informada</strong></div><div class="summary-line"><span>Assentos</span><strong>Não informados</strong></div><div class="summary-line"><span>Total</span><strong>R$ 0,00</strong></div><p style="margin-top:20px;color:var(--muted);font-size:.9rem">Código demonstrativo</p><div class="ticket-code" id="confirmationCode">CINEMA-SENAC</div><div class="notice-panel" id="confirmationMessage">Esta é uma confirmação demonstrativa. Nenhuma compra ou cobrança foi realizada.</div></div>
     <div class="checkout-actions" style="justify-content:center"><a class="secondary-button" href="../index.html">Voltar ao início</a><a class="primary-button" style="width:auto" href="../index.html#catalogo">Escolher outro filme <span>→</span></a></div>
   </section>
 <footer class="page-footer"><a class="brand footer-brand" href="../index.html">Cinema Senac</a><p>Feito para quem ama filmes.</p><span>© 2026 Cinema Senac projeto acadêmico</span></footer>
+  <script src="../js/storage.js"></script>
   <script>
     (() => {
       const params = new URLSearchParams(window.location.search);
       const method = params.get('metodo') || 'demo';
       const code = params.get('codigo') || 'CINEMA-SENAC';
+      const sessao = Armazenamento.lerSessaoSelecionada();
       const codeEl = document.getElementById('confirmationCode');
       const message = document.getElementById('confirmationMessage');
+      if (sessao) {
+        document.getElementById('confirmationMovie').textContent = sessao.filme;
+        document.getElementById('confirmationTime').textContent = sessao.horario;
+      }
       codeEl.textContent = code;
       if (method === 'bilheteria') {
         document.querySelector('.page-title').textContent = 'Retire seu bilhete no balcão.';
