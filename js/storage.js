@@ -1,3 +1,5 @@
+const CHAVE_SESSAO_SELECIONADA = 'cinemaSenac.sessaoSelecionada';
+
 const Armazenamento = {
     salvar: (chave, valor) => {
         try {
@@ -10,12 +12,12 @@ const Armazenamento = {
     remover: (chave) => {
         try {
             localStorage.removeItem(chave);
-            return;
+            return true;
         } catch (erro) {
-            return;
+            return false;
         }
     },
-    ler: (chave,padrao) => {
+    ler: (chave, padrao) => {
         try {
             const valor = localStorage.getItem(chave);
             if (valor === null) {
@@ -25,5 +27,15 @@ const Armazenamento = {
         } catch (erro) {
             return padrao;
         }
+    },
+    salvarSessaoSelecionada: (filme, horario) => {
+        return Armazenamento.salvar(CHAVE_SESSAO_SELECIONADA, { filme, horario });
+    },
+    lerSessaoSelecionada: () => {
+        const sessao = Armazenamento.ler(CHAVE_SESSAO_SELECIONADA, null);
+        if (!sessao || typeof sessao.filme !== 'string' || typeof sessao.horario !== 'string') {
+            return null;
+        }
+        return sessao;
     }
 };
