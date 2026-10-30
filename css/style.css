@@ -394,6 +394,55 @@ img { max-width: 100%; display: block; }
   min-width: max-content;
   margin: 0 auto;
 }
+.seat-row{
+  display: flex;
+  gap: 4px;
+  margin-bottom: 4px;
+}
+
+.row-label {
+  flex: 0 0 24px;
+  text-align: center;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--muted);
+}
+.seat, .seat-gap{
+  flex: 0 0 22px;
+  height: 20px;
+}
+
+.seat{
+  padding:0;
+  border: none;
+  border-radius: 5px 5px 5px 5px;
+  background: #5a5a63;
+  color:var(--text);
+  font-size: 0.6rem;
+  font-weight: 700;
+}
+/* mapa sem a numeração */
+.seat-map.sem-numeros .seat {
+  color: transparent;
+}
+/* estados da poltrona */
+.seat:not(.occupied):not(.chosen):hover {
+  background: #7a7a85;
+}
+.seat.chosen {
+  background: var(--accent);
+  color: var(--bg);
+  box-shadow: 0 0 10px var(--accent-glow);
+}
+.seat.occupied {
+  background: #1d1d20;
+  opacity: 0.55;
+  background-image: repeating-linear-gradient(45deg, transparent 0 4px, rgba(255, 255, 255, 0.08) 4px 6px);
+  cursor: not-allowed;
+}
+.seat-aisle {
+  height: 18px;
+}
 
 /* legenda */
 .seat-legend {
@@ -420,6 +469,47 @@ img { max-width: 100%; display: block; }
   background: #1d1d20;
   opacity: 0.55;
   background-image: repeating-linear-gradient(45deg, transparent 0 4px, rgba(255, 255, 255, 0.08) 4px 6px);
+}
+/* interruptor que liga e desliga a numeração */
+.toggle-numbers {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0;
+  border: none;
+  background: transparent;
+  color: var(--text);
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+.switch-track {
+  position: relative;
+  display: inline-block;
+  width: 44px;
+  height: 24px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: #3a3a40;
+  transition: background 0.2s var(--ease), border-color 0.2s var(--ease);
+}
+.switch-track::after {
+  content: "";
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #fff;
+  transition: transform 0.2s var(--ease);
+}
+.toggle-numbers[aria-checked="true"] .switch-track {
+  background: #fff;
+  border-color: #fff;
+}
+.toggle-numbers[aria-checked="true"] .switch-track::after {
+  transform: translateX(20px);
+  background: var(--bg);
 }
 
 /*9. RESUMO DO PEDIDO*/

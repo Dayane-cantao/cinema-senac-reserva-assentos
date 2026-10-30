@@ -22,13 +22,15 @@
   <section class="booking-panel" id="assentos">
     <div class="booking-intro"><div><p class="eyebrow muted">SALA 04 · 2D</p><h2>Mapa de poltronas</h2><p>Escolha os lugares para sua sessão.</p></div><div class="screen-label">TELA</div></div>
     <div class="seat-layout">
-      <div class="seat-area"><div class="screen-curve"></div><div class="screen-caption">VISÃO DA TELA</div><div class="seat-map" id="seatMap" aria-label="Mapa de assentos"><p class="page-lead">O mapa de assentos será carregado pelo JavaScript do projeto.</p></div><div class="seat-legend"><span><i class="legend-seat available"></i> Disponível</span><span><i class="legend-seat chosen"></i> Selecionado</span><span><i class="legend-seat occupied"></i> Ocupado</span></div></div>
-      <aside class="order-summary"><div class="summary-top"><span class="summary-icon">▣</span><div><p>RESUMO DO PEDIDO</p><h3 id="summaryMovie">Seu filme</h3></div></div><div class="summary-meta"><span>Sessão · <b id="summaryTime">—:—</b></span><span>Sala 04 · 2D</span></div><div class="summary-seats"><p>SEUS ASSENTOS</p><div id="selectedSeats" class="selected-seats">Nenhum assento selecionado</div></div><div class="summary-total"><span>Total</span><strong id="totalPrice">R$ 0,00</strong></div><a class="primary-button" href="pagamento.html">Continuar para pagamento <span>→</span></a><p class="secure-note">Revise seus lugares antes de continuar.</p></aside>
+      <div class="seat-area"><div class="screen-curve"></div><div class="screen-caption">VISÃO DA TELA</div><div class="seat-map" id="seatMap" aria-label="Mapa de assentos"><p class="page-lead">O mapa de assentos será carregado pelo JavaScript do projeto.</p></div><div class="seat-legend"><span><i class="legend-seat available"></i> Disponível</span><span><i class="legend-seat chosen"></i> Selecionado</span><span><i class="legend-seat occupied"></i> Ocupado</span><button type="button" class="toggle-numbers" id="btnNumeros" role="switch" aria-checked="true"><span>Exibir numeração</span><i class="switch-track" aria-hidden="true"></i></button></div></div>
+      <aside class="order-summary"><div class="summary-top"><span class="summary-icon">▣</span><div><p>RESUMO DO PEDIDO</p><h3 id="summaryMovie">Seu filme</h3></div></div><div class="summary-meta"><span>Sessão · <b id="summaryTime">—:—</b></span><span>Sala 04 · 2D</span></div><div class="summary-seats"><p>SEUS ASSENTOS</p><div id="selectedSeats" class="selected-seats">Nenhum assento selecionado</div></div><div class="summary-total"><span>Total</span><strong id="totalPrice">R$ 0,00</strong></div><p id="avisoAssentos" role="alert" hidden></p><a class="primary-button" id="btnContinuar" href="pagamento.html">Continuar para pagamento <span>→</span></a><p class="secure-note">Revise seus lugares antes de continuar.</p></aside>
     </div>
   </section>
   <div class="checkout-actions"><a class="secondary-button" href="../index.html#catalogo">← Voltar aos filmes</a></div>
 <footer class="page-footer"><a class="brand footer-brand" href="../index.html">Cinema Senac</a><p>Feito para quem ama filmes.</p><span>© 2026 Cinema Senac projeto acadêmico</span></footer>
 </main>
 <script src="../js/visual.js"></script>
+<script src="../js/storage.js"></script>
+<script src="../js/assentos.js"></script>
 </body>
 </html>

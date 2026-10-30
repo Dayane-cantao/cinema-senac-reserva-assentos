@@ -1,13 +1,8 @@
-/* =========================================================
-   Parte visual: navegação de sessões e setas do carrossel.
-   Não faz seleção de assento, cálculo, validação ou LocalStorage.
-   ========================================================= */
 (function () {
   'use strict';
 
   function init() {
     iniciarCarrossel(document.querySelector('.movie-grid'));
-    iniciarNavegacaoSessoes();
     preencherResumoAssentos();
   }
 
@@ -94,25 +89,6 @@
     b.setAttribute('aria-label', rotulo);
     b.textContent = texto;
     return b;
-  }
-
-  function iniciarNavegacaoSessoes() {
-    var grid = document.querySelector('.movie-grid');
-    if (!grid) return;
-
-    grid.addEventListener('click', function (event) {
-      var horario = event.target.closest('.time-btn');
-      if (!horario) return;
-
-      var filme = horario.closest('.movie-card');
-      if (!filme) return;
-
-      var parametros = new URLSearchParams({
-        filme: filme.dataset.title || '',
-        horario: horario.dataset.time || horario.textContent.trim()
-      });
-      window.location.href = 'pages/assentos.html?' + parametros.toString();
-    });
   }
 
   function preencherResumoAssentos() {
