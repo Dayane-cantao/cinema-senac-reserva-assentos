@@ -43,10 +43,17 @@
       <div class="notice-panel">Ambiente de demonstração: não há cobrança, reserva real nem processamento de pagamento.</div>
       <div class="checkout-actions"><a class="secondary-button" href="assentos.html">← Voltar</a><button class="primary-button" id="finishPayment" type="button">Continuar <span>→</span></button></div>
     </section>
-    <aside class="order-summary"><div class="summary-top"><div class="summary-poster">▣</div><div><p>SEU PEDIDO</p><h3>Sessão de cinema</h3></div></div><div class="summary-line"><span>Filme</span><strong>A confirmar</strong></div><div class="summary-line"><span>Horário</span><strong>—:—</strong></div><div class="summary-line"><span>Assentos</span><strong>Não selecionados</strong></div><div class="summary-total"><span>Total ilustrativo</span><strong>R$ 0,00</strong></div><p class="secure-note">Protótipo visual · sem cobrança</p></aside>
+    <aside class="order-summary"><div class="summary-top"><div class="summary-poster">▣</div><div><p>SEU PEDIDO</p><h3>Sessão de cinema</h3></div></div><div class="summary-line"><span>Filme</span><strong id="summaryMovie">A confirmar</strong></div><div class="summary-line"><span>Horário</span><strong id="summaryTime">—:—</strong></div><div class="summary-line"><span>Assentos</span><strong>Não selecionados</strong></div><div class="summary-total"><span>Total ilustrativo</span><strong>R$ 0,00</strong></div><p class="secure-note">Protótipo visual · sem cobrança</p></aside>
   </div>
+  <script src="../js/storage.js"></script>
   <script>
     (() => {
+      const sessao = Armazenamento.lerSessaoSelecionada();
+      if (sessao) {
+        document.getElementById('summaryMovie').textContent = sessao.filme;
+        document.getElementById('summaryTime').textContent = sessao.horario;
+      }
+
       const radios = document.querySelectorAll('input[name="metodo"]');
       const panels = { pix: document.getElementById('pixPanel'), bilheteria: document.getElementById('bilheteriaPanel'), cartao: document.getElementById('cartaoPanel') };
       const ticketCode = document.getElementById('ticketCode');
