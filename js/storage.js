@@ -1,4 +1,5 @@
 const CHAVE_SESSAO_SELECIONADA = 'cinemaSenac.sessaoSelecionada';
+const CHAVE_PEDIDO = 'cinemaSenac.pedido';
 
 const Armazenamento = {
     salvar: (chave, valor) => {
@@ -37,5 +38,17 @@ const Armazenamento = {
             return null;
         }
         return sessao;
+    },
+    salvarPedido: (assentos, total) => {
+        return Armazenamento.salvar(CHAVE_PEDIDO, { assentos, total });
+    },
+    lerPedido: () => {
+        const pedido = Armazenamento.ler(CHAVE_PEDIDO, null);
+
+        if (!pedido || !Array.isArray(pedido.assentos) || typeof pedido.total !== 'number') {
+            return null;
+        }
+
+        return pedido;
     }
 };
