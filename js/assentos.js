@@ -115,6 +115,11 @@ function atualizarResumo() {
     total.textContent = formatarMoeda(valorTotal);
 }
 
+function atualizarPedidoSalvo() {
+    const total = selecionados.length * PRECO_INGRESSO;
+    return Armazenamento.salvarPedido(selecionados, total);
+}
+
 function formatarMoeda(valor) {
     return valor.toLocaleString('pt-BR', {
         style: 'currency',
@@ -126,6 +131,27 @@ function formatarMoeda(valor) {
 montarMapa();
 
 const mapa = document.getElementById('seatMap');
+const sessao = Armazenamento.lerSessaoSelecionada();
+
+if (sessao) {
+    document.getElementById('summaryMovie').textContent = sessao.filme;
+    document.getElementById('summaryTime').textContent = sessao.horario;
+}
+
+const pedidoSalvo = Armazenamento.lerPedido();
+
+if (pedidoSalvo) {
+    for (const id of pedidoSalvo.assentos) {
+        const poltrona = Array.from(mapa.querySelectorAll('.seat')).find((assento) => assento.dataset.id === id);
+
+        if (poltrona && !poltrona.disabled) {
+            selecionados.push(id);
+            poltrona.classList.add('chosen');
+        }
+    }
+
+    atualizarResumo();
+}
 
 // Seleção e desseleção das poltronas
 mapa.addEventListener('click', (event) => {
@@ -141,6 +167,14 @@ mapa.addEventListener('click', (event) => {
     poltrona.classList.toggle('chosen');
 
     atualizarResumo();
+
+    const aviso = document.getElementById('avisoAssentos');
+    if (!atualizarPedidoSalvo()) {
+        aviso.textContent = 'Não foi possível salvar sua seleção neste navegador.';
+        aviso.hidden = false;
+    } else {
+        aviso.hidden = true;
+    }
 });
 
 // Mostrar ou esconder números
@@ -167,8 +201,7 @@ btnContinuar.addEventListener('click', (event) => {
         return;
     }
 
-    const total = selecionados.length * PRECO_INGRESSO;
-    const salvou = Armazenamento.salvarPedido(selecionados, total);
+    const salvou = atualizarPedidoSalvo();
 
     if (!salvou) {
         event.preventDefault();

@@ -22,6 +22,8 @@
         return;
       }
 
+      Armazenamento.removerPedido();
+
       var parametros = new URLSearchParams({
         filme: titulo,
         horario: horarioSelecionado

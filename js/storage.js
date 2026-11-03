@@ -42,6 +42,9 @@ const Armazenamento = {
     salvarPedido: (assentos, total) => {
         return Armazenamento.salvar(CHAVE_PEDIDO, { assentos, total });
     },
+    removerPedido: () => {
+        return Armazenamento.remover(CHAVE_PEDIDO);
+    },
     lerPedido: () => {
         const pedido = Armazenamento.ler(CHAVE_PEDIDO, null);
 
