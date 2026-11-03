@@ -2,8 +2,78 @@
   'use strict';
 
   function init() {
+    iniciarNavegacao();
     iniciarCarrossel(document.querySelector('.movie-grid'));
     preencherResumoAssentos();
+  }
+
+  function iniciarNavegacao() {
+    var nav = document.querySelector('.main-nav');
+    if (!nav) return;
+
+    var links = Array.prototype.map.call(nav.querySelectorAll('a[href^="#"]'), function (link) {
+      return {
+        link: link,
+        section: document.getElementById(link.getAttribute('href').slice(1))
+      };
+    }).filter(function (item) {
+      return item.section;
+    });
+
+    if (!links.length) return;
+
+    function ativar(itemAtivo) {
+      links.forEach(function (item) {
+        var ativo = item === itemAtivo;
+        item.link.classList.toggle('active', ativo);
+        if (ativo) {
+          item.link.setAttribute('aria-current', 'location');
+        } else {
+          item.link.removeAttribute('aria-current');
+        }
+      });
+    }
+
+    function atualizar() {
+      var cabecalho = document.querySelector('.topbar');
+      var margemDeRolagem = parseFloat(window.getComputedStyle(document.documentElement).scrollPaddingTop) || 0;
+      var limite = Math.max(cabecalho ? cabecalho.getBoundingClientRect().bottom : 0, margemDeRolagem) + 1;
+      var itemAtivo = links[0];
+
+      links.forEach(function (item) {
+        if (item.section.getBoundingClientRect().top <= limite) {
+          itemAtivo = item;
+        }
+      });
+
+      if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 1) {
+        itemAtivo = links[links.length - 1];
+      }
+
+      ativar(itemAtivo);
+    }
+
+    var atualizacaoAgendada = false;
+    function agendarAtualizacao() {
+      if (atualizacaoAgendada) return;
+      atualizacaoAgendada = true;
+      window.requestAnimationFrame(function () {
+        atualizacaoAgendada = false;
+        atualizar();
+      });
+    }
+
+    nav.addEventListener('click', function (event) {
+      var link = event.target.closest('a[href^="#"]');
+      var item = links.find(function (navItem) {
+        return navItem.link === link;
+      });
+      if (item) ativar(item);
+    });
+    window.addEventListener('scroll', agendarAtualizacao, { passive: true });
+    window.addEventListener('resize', agendarAtualizacao);
+    window.addEventListener('hashchange', agendarAtualizacao);
+    atualizar();
   }
 
   /*CARROSSEL: setas anterior / próximo*/
