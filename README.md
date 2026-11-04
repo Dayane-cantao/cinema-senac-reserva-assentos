@@ -250,7 +250,6 @@ Projeto desenvolvido como atividade do **Projeto Integrador — Boas Práticas d
 
 ### ✅ Projeto concluído
 
-**Prazo final:** 31/10/2026
 
 Todas as etapas previstas foram finalizadas, incluindo desenvolvimento, integração, validações, testes, documentação e apresentação.
 
