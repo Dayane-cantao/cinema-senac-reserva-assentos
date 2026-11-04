@@ -368,6 +368,11 @@ img { max-width: 100%; display: block; }
   overflow-x: auto;
 }
 
+.seat-stage {
+  width: max-content;
+  margin: 0 auto;
+}
+
 /* tela */
 .screen-curve {
   width: min(80%, 520px);
