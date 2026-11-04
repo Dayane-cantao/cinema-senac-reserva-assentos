@@ -129,7 +129,7 @@ Pagamento simulado
 Confirmação da reserva
 ```
 
-
+```text
 ## 👥 Equipe
 
 | Integrante | Responsabilidade | 
@@ -141,7 +141,7 @@ Confirmação da reserva
 | **Guilherme de Melo Gama** | Desenvolvimento e estilização CSS |
 | **Rebeca Brandão Vieira** | Desenvolvimento JavaScript em conjunto com Gustavo |
 | **Victor Cabral** | LocalStorage, validações, testes e evidências |
-
+```
 
 ## 🧩 Etapas do desenvolvimento
 
