@@ -498,8 +498,6 @@ https://dayane-cantao.github.io/cinema-senac-reserva-assentos/
 💻 **Repositório GitHub:**  
 https://github.com/Dayane-cantao/cinema-senac-reserva-assentos
 
-📄 **Protótipo:**  
-[Visualizar PDF](docs/prototipo-reserva-assentos.pdf)
 
 ---
 
