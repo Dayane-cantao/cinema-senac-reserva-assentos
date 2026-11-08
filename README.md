@@ -12,12 +12,6 @@ O projeto simula o processo de reserva de ingressos de cinema, permitindo ao usu
 
 🔗 **[Acessar aplicação publicada](https://dayane-cantao.github.io/cinema-senac-reserva-assentos/)**
 
-📄 **[Visualizar protótipo](docs/prototipo-reserva-assentos.pdf)**
-
-🎥 **[Demonstração no computador](demo/demo-desktop.mp4)**
-
-📱 **[Demonstração em dispositivo móvel](demo/demo-mobile.mp4)**
-
 A aplicação está publicada através do **GitHub Pages** e pode ser executada diretamente pelo navegador, sem necessidade de instalação.
 
 ---
