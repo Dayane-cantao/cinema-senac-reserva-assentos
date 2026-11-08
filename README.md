@@ -81,33 +81,32 @@ O projeto foi desenvolvido utilizando:
 
 ```text
 cinema-senac-reserva-assentos/
-│
 ├── README.md
 ├── index.html
-│
-├── pages/
-│   ├── assentos.html
-│   ├── pagamento.html
-│   └── confirmacao.html
-│
+├── assets/
+│   ├── Prot#U00f3tipo.pdf
+│   ├── icons/
+│   │   └── icon.png
+│   └── img/
+│       ├── filmes/
+│       ├── interface/
+│       └── qr-code/
 ├── css/
-│   ├── README.md
 │   ├── style.css
 │   └── responsive.css
-│
+├── demo/
+│   ├── [vídeo desktop].mp4
+│   └── [vídeo mobile].mp4
 ├── js/
-│   ├── README.md
-│   ├── filmes.js
 │   ├── assentos.js
+│   ├── filmes.js
 │   ├── pagamento.js
-│   └── storage.js
-│
-├── assets/
-│   ├── img/
-│   └── icons/
-│
-└── docs/
-    └── documentação do projeto
+│   ├── storage.js
+│   └── visual.js
+└── pages/
+    ├── assentos.html
+    ├── pagamento.html
+    └── confirmacao.html
 ```
 
 
@@ -129,19 +128,53 @@ Pagamento simulado
 Confirmação da reserva
 ```
 
-```text
-## 👥 Equipe
+## 👥 Equipe do Projeto
 
-| Integrante | Responsabilidade | 
-| **Dayane Cantão Azarias** | Liderança, organização do projeto, GitHub, integração e apoio na documentação |
-| **Gustavo Duque Ferreira** | Definição do problema, objetivos, requisitos e apoio no desenvolvimento JavaScript |
-| **Fabiana Costa dos Santos** | Documentação e montagem da apresentação junto à liderança |
-| **Ranieri Portinari Bezerra dos Santos** | Desenvolvimento do protótipo e definição visual |
-| **Bruno Lira Soares** | Desenvolvimento da estrutura HTML |
-| **Guilherme de Melo Gama** | Desenvolvimento e estilização CSS |
-| **Rebeca Brandão Vieira** | Desenvolvimento JavaScript em conjunto com Gustavo |
-| **Victor Cabral** | LocalStorage, validações, testes e evidências |
-```
+O projeto foi desenvolvido de forma colaborativa por **8 integrantes**, com responsabilidades definidas de acordo com cada etapa do desenvolvimento.
+
+
+### 👩‍💻 Dayane Cantão Azarias
+**Liderança e organização do projeto**
+
+Responsável pela organização da equipe, estruturação do GitHub, acompanhamento das etapas, integração das atividades, revisão final e apoio na documentação.
+
+### 🎯 Gustavo Duque Ferreira
+**Requisitos e JavaScript**
+
+Responsável pela definição do problema, objetivos e requisitos do sistema, além do desenvolvimento das funcionalidades JavaScript em conjunto com Rebeca.
+
+### 📝 Fabiana Costa dos Santos
+**Documentação e apresentação**
+
+Responsável pela documentação do projeto e montagem da apresentação final em conjunto com Dayane.
+
+### 🎨 Ranieri Portinari Bezerra dos Santos
+**Protótipo e identidade visual**
+
+Responsável pela criação do protótipo utilizado como referência para o desenvolvimento das telas e definição visual da aplicação.
+
+### 🧱 Bruno Lira Soares
+**HTML**
+
+Responsável pela construção da estrutura HTML das páginas da aplicação.
+
+### 🎨 Guilherme de Melo Gama
+**CSS e responsividade**
+
+Responsável pela estilização das páginas, organização visual da interface e adaptação do projeto para diferentes tamanhos de tela.
+
+### ⚙️ Rebeca Brandão Vieira
+**JavaScript**
+
+Responsável pelo desenvolvimento das funcionalidades JavaScript, incluindo seleção de poltronas e cálculos, em conjunto com Gustavo.
+
+### 🧪 Victor Cabral
+**LocalStorage, validações e testes**
+
+Responsável pelo armazenamento local das informações, validações, testes da aplicação e registro das evidências do projeto.
+
+
+> **Projeto desenvolvido colaborativamente, com cada integrante responsável por uma etapa específica e integração das atividades durante o desenvolvimento.**
 
 ## 🧩 Etapas do desenvolvimento
 
